@@ -64,7 +64,7 @@ body {
     background-color: #FFC84D;
     border-radius: 50px;
     counter-reset: section;
-    padding: 97px 150px 130px 149px;
+    padding: 97px 60px 130px 86px;
     margin: 0 auto;
     width: 1200px; }
     body .slider-item {
@@ -72,6 +72,7 @@ body {
       box-sizing: border-box;
       box-shadow: 0px 10px 0px #F5BD3F;
       border-radius: 50px;
+      display: inline-block;
       padding: 51px 60px 41px 114px;
       position: relative;
       height: 358px;
