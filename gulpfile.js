@@ -1,7 +1,6 @@
 const {series, parallel, src, dest, watch} = require('gulp');
 const del = require("del");
 const sass = require("gulp-sass");
-const postcss = require("gulp-postcss");
 const browserSync = require('browser-sync').create();
 
 //Pathes
@@ -41,8 +40,13 @@ function scss() {
 
 function buildCSS(cb) {
   return src(path.css + '/*.css')
-    .pipe(postcss())
     .pipe(dest(path.production + '/css'))
+    .pipe(browserSync.stream())
+}
+
+function buildJS(cb) {
+  return src(path.js + '/*.js')
+    .pipe(dest(path.production + '/js'))
     .pipe(browserSync.stream())
 }
 
@@ -61,11 +65,11 @@ function serve(done) {
 
 function watchFiles(done) {
   watch(path.scss + '/*.scss', series(cleanDev, scss, buildCSS));
-  //watch([path.js + '/**/*.js'], series(buildJS, reload));
+  watch([path.js + '/**/*.js'], series(buildJS, reload));
 
   watch("app/*.html").on('change', reload);
   done();
 }
 
-exports.default = series(cleanDev, scss, buildCSS);
-exports.dev = series(cleanDev, scss, buildCSS, watchFiles, serve);
+exports.default = series(cleanDev, scss, buildCSS, buildJS);
+exports.dev = series(cleanDev, scss, buildCSS, buildJS, watchFiles, serve);
