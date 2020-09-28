@@ -4,11 +4,11 @@ html {
 	text-rendering: optimizelegibility;
 	-moz-osx-font-smoothing: grayscale;
 	-moz-font-feature-settings: "liga", "kern";
-	letter-spacing: -0.5px;
 	-webkit-font-smoothing: antialiased;
 	letter-spacing: 0;
 }
 body {
-	font-size: 1.8rem;
-	color: $text-gray;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.6rem;
+	color: $text-main;
 }

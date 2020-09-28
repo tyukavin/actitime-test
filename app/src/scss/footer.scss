@@ -1,4 +1,35 @@
 .footer {
 	background-color: $color-violet;
 	padding: 75px 0;
+
+	&-right {
+		display: flex;
+		align-items: center;
+	}
+
+	&-logo {
+		margin-right: 191px;
+	}
+
+	&-menu {
+		&__item {
+			color: $text-white;
+			font-size: 1.6rem;
+			font-weight: 500;
+			margin-right: 54px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+	}
+
+	&-form {
+		.input {
+			margin-right: 33px;
+			width: 419px;
+		}
+	}
+
 }
