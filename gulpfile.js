@@ -2,6 +2,7 @@ const {series, parallel, src, dest, watch} = require('gulp');
 const del = require("del");
 const sass = require("gulp-sass");
 const browserSync = require('browser-sync').create();
+const babel = require('gulp-babel');
 
 //Pathes
 var path = {
@@ -46,6 +47,14 @@ function buildCSS(cb) {
 
 function buildJS(cb) {
   return src(path.js + '/*.js')
+    .pipe(babel({
+        presets: [
+          ["@babel/env", {"targets": {
+                  "browsers": ["last 2 versions", "ie 8"]
+              }, "modules": false}]
+        ],
+        compact: true
+    }))
     .pipe(dest(path.production + '/js'))
     .pipe(browserSync.stream())
 }
@@ -65,7 +74,7 @@ function serve(done) {
 
 function watchFiles(done) {
   watch(path.scss + '/*.scss', series(cleanDev, scss, buildCSS));
-  watch([path.js + '/**/*.js'], series(buildJS, reload));
+  watch(path.js + '/**/*.js', series(buildJS));
 
   watch("app/*.html").on('change', reload);
   done();
