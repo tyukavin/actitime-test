@@ -155,22 +155,6 @@ body {
         position: absolute;
         top: -5px;
         text-transform: uppercase; }
-  body .dots {
-    position: absolute;
-    left: 60px;
-    bottom: 60px;
-    display: flex; }
-    body .dots .dot {
-      background-color: #fff;
-      border-radius: 50%;
-      cursor: pointer;
-      margin-right: 15px;
-      height: 6px;
-      width: 6px; }
-      body .dots .dot:last-child {
-        margin-right: 0; }
-      body .dots .dot.is-active {
-        background-color: #F063B8; }
 
 .main {
   max-width: 1320px;
@@ -182,13 +166,13 @@ body {
   .main img {
     max-width: 100%; }
   .main__title {
-    font-size: 2.5em;
+    font-size: 4rem;
     line-height: 1.3;
     margin-bottom: .95em; }
   .main__desc {
     color: #4B5D68;
     line-height: 1.6;
-    font-size: 1.44em;
+    font-size: 2.3rem;
     font-weight: 400;
     margin-bottom: 56px; }
 
@@ -302,5 +286,56 @@ body {
 /*Pages stop*/
 /*Phone Stop*/
 /*small phone start*/
+@media (max-width: 480px) {
+  body .container {
+    padding: 0 20px;
+    width: 100%; }
+  body .header {
+    padding: 25px 0; }
+    body .header-menu {
+      display: none; }
+    body .header__sign {
+      display: none; }
+  body .main {
+    padding-top: 70px;
+    padding-bottom: 73px; }
+    body .main__title {
+      font-size: 3.5rem; }
+    body .main__desc {
+      padding: 0 20px; }
+  body .footer-logo {
+    margin-right: 0; }
+  body .footer__container {
+    flex-direction: column; }
+  body .footer-right {
+    justify-content: space-between;
+    align-items: flex-start; }
+  body .footer-menu {
+    display: flex;
+    flex-direction: column; }
+    body .footer-menu__item {
+      margin-right: 0;
+      margin-bottom: 20px; }
+  body .footer-form {
+    margin-top: 35px;
+    text-align: center; }
+    body .footer-form .input {
+      margin-right: 0;
+      margin-bottom: 22px;
+      width: 100%; }
+  body .slider {
+    border-radius: 0;
+    padding: 38px 20px 99px;
+    width: 100%; }
+    body .slider-pagination.swiper-pagination {
+      bottom: 35px;
+      left: 0;
+      width: 100%; }
+    body .slider-item {
+      padding: 50px 30px;
+      width: 100%; }
+      body .slider-item:before {
+        display: none; } }
+
 /*small phone stop*/
 /*Responsive stop*/
