@@ -76,19 +76,55 @@ body {
 		justify-content: space-between;
 	}
 
+	.swiper-slide {
+		opacity: 0;
+		@extend %transition;
+	}
 
-	.siema {
-		padding: 15px 0;
+	.swiper-slide-active,
+	.swiper-slide-next {
+		opacity: 1;
 	}
 
 	.slider {
 		background-color: $color-yellow;
 		border-radius: 50px;
 		counter-reset: section;
-		padding: 80px 60px 115px 85px;
+		padding: 100px 120px 130px 150px;
 		position: relative;
 		margin: 0 auto;
 		width: 1200px;
+
+		&-pagination.swiper-pagination {
+			bottom: 60px;
+			left: 60px;
+			width: auto;
+
+			.swiper-pagination-bullet {
+				background-color: #fff;
+				border: 4px solid transparent;
+				position: relative;
+				opacity: 1;
+				margin: 0;
+				margin-right: 15px;
+				height: 6px;
+				width: 6px;
+				&-active:before {
+					content: '';
+					background-color: $color-pink;
+					border-radius: 50%;
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					height: 10px;
+					width: 10px;
+					transform: translate(-50%, -50%);
+				}
+
+			}
+
+		}
 
 		&-item {
 			background-color: $color-yellow2;
@@ -98,7 +134,7 @@ body {
 			display: inline-flex;
 			flex-direction: column;
 			justify-content: space-between;
-			padding: 51px 60px 41px 114px;
+			padding: 50px 60px 45px 110px;
 			position: relative;
 			height: 358px;
 			width: 390px;

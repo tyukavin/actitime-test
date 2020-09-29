@@ -42,6 +42,7 @@
 			transform: rotate(-45deg);
 		}
 		&__item {
+			@extend %transition;
 			color: $text-main;
 			font-size: 1.6rem;
 			font-weight: 400;
@@ -93,9 +94,16 @@
 				transform: none;
 			}
 
+			&:hover svg {
+				transform: rotate(180deg);
+			}
+
 			svg {
+				@extend %transition;
+				transition-property: transform;
 				fill: currentColor;
 				margin-left: 5px;
+				transform: none;
 			}
 
 		}
