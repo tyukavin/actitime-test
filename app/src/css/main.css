@@ -16,6 +16,9 @@ body {
   font-size: 1.6rem;
   color: #212353; }
 
+body .btn, body .slider-item__link, .header .menu-inside, .header-menu__item {
+  transition: .2s ease-out; }
+
 * {
   box-sizing: border-box; }
 
@@ -30,7 +33,7 @@ body {
   body ul, body ol {
     list-style: none; }
   body a {
-    color: #212353;
+    color: inherit;
     text-decoration: none; }
   body input {
     border: none;
@@ -46,10 +49,14 @@ body {
     font-weight: 500;
     line-height: 1.6;
     padding: 16px 59px; }
+    body .btn:hover {
+      background-color: #B17FF4; }
     body .btn--more {
       background-color: #EEAA12;
       font-size: 1.6rem;
       padding: 11px 28px; }
+      body .btn--more:hover {
+        background-color: #FFBE2D; }
   body .input {
     background-color: #fff;
     border-radius: 4px;
@@ -60,11 +67,14 @@ body {
     width: 1320px; }
   body .row-space-between {
     justify-content: space-between; }
+  body .siema {
+    padding: 15px 0; }
   body .slider {
     background-color: #FFC84D;
     border-radius: 50px;
     counter-reset: section;
-    padding: 97px 60px 130px 86px;
+    padding: 80px 60px 115px 85px;
+    position: relative;
     margin: 0 auto;
     width: 1200px; }
     body .slider-item {
@@ -72,7 +82,9 @@ body {
       box-sizing: border-box;
       box-shadow: 0px 10px 0px #F5BD3F;
       border-radius: 50px;
-      display: inline-block;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: space-between;
       padding: 51px 60px 41px 114px;
       position: relative;
       height: 358px;
@@ -99,9 +111,39 @@ body {
         margin-bottom: 25px; }
       body .slider-item__link {
         font-size: 1em;
-        font-weight: 700; }
+        font-weight: 700;
+        display: flex;
+        align-items: center; }
+        body .slider-item__link:hover {
+          color: #9C69E2; }
         body .slider-item__link span {
           margin-right: 21px; }
+      body .slider-item__label {
+        color: #fff;
+        background-color: #F063B8;
+        border-radius: 0px 0px 4px 4px;
+        box-shadow: 0px 4px 0px #EFE3C5;
+        font-size: 1.8rem;
+        padding: 8px 15px;
+        position: absolute;
+        top: -5px;
+        text-transform: uppercase; }
+  body .dots {
+    position: absolute;
+    left: 60px;
+    bottom: 60px;
+    display: flex; }
+    body .dots .dot {
+      background-color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-right: 15px;
+      height: 6px;
+      width: 6px; }
+      body .dots .dot:last-child {
+        margin-right: 0; }
+      body .dots .dot.is-active {
+        background-color: #F063B8; }
 
 .main {
   max-width: 1320px;
@@ -134,18 +176,68 @@ body {
     margin-right: 131px;
     display: flex;
     align-items: center; }
+  .header .menu-inside {
+    background-color: #fff;
+    border: 1px solid #9C69E2;
+    border-radius: 10px;
+    box-shadow: 0px 4px 0px #E2CEFE;
+    position: absolute;
+    top: 100%;
+    left: -25px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 25px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px); }
+    .header .menu-inside:before {
+      border-top: 1px solid #9C69E2;
+      border-right: 1px solid #9C69E2;
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 61px;
+      background-color: #fff;
+      height: 18px;
+      width: 18px;
+      transform: rotate(-45deg); }
+    .header .menu-inside__item {
+      color: #212353;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+      white-space: nowrap; }
+      .header .menu-inside__item:last-child {
+        margin-bottom: 0; }
+      .header .menu-inside__item:hover {
+        color: #9C69E2; }
   .header-menu {
     display: flex;
     align-items: center; }
     .header-menu ul {
       display: flex; }
     .header-menu__item {
+      color: #212353;
       font-size: 1.8rem;
       font-weight: 500;
       margin-right: 52px;
-      line-height: 1.6; }
+      line-height: 1.6;
+      padding: 15px 0; }
+      .header-menu__item:hover {
+        color: #9C69E2; }
       .header-menu__item:last-child {
         margin-right: 0; }
+    .header-menu__inside {
+      display: flex;
+      align-items: center;
+      position: relative; }
+      .header-menu__inside:hover .menu-inside {
+        opacity: 1;
+        pointer-events: all;
+        transform: none; }
+      .header-menu__inside svg {
+        fill: currentColor;
+        margin-left: 5px; }
 
 .footer {
   background-color: #9C69E2;

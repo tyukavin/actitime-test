@@ -1,3 +1,7 @@
+%transition {
+	transition: .2s ease-out;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -20,7 +24,7 @@ body {
 	}
 
 	a {
-		color: $text-main;
+		color: inherit;
 		text-decoration: none;
 	}
 
@@ -31,6 +35,7 @@ body {
 	}
 
 	.btn {
+		@extend %transition;
 		color: $text-white;
 		cursor: pointer;
 		background-color: $color-violet;
@@ -40,11 +45,18 @@ body {
 		font-weight: 500;
 		line-height: 1.6;
 		padding: 16px 59px;
+		&:hover {
+			background-color: #B17FF4;
+		}
 
 		&--more {
 			background-color: $color-orange;
 			font-size: 1.6rem;
 			padding: 11px 28px;
+			&:hover {
+				background-color: #FFBE2D;
+			}
+
 		}
 	}
 
@@ -65,21 +77,27 @@ body {
 	}
 
 
+	.siema {
+		padding: 15px 0;
+	}
+
 	.slider {
 		background-color: $color-yellow;
 		border-radius: 50px;
 		counter-reset: section;
-		padding: 97px 60px 130px 86px;
+		padding: 80px 60px 115px 85px;
+		position: relative;
 		margin: 0 auto;
 		width: 1200px;
 
 		&-item {
-			
 			background-color: $color-yellow2;
 			box-sizing: border-box;
 			box-shadow: 0px 10px 0px #F5BD3F;
 			border-radius: 50px;
-			display: inline-block;
+			display: inline-flex;
+			flex-direction: column;
+			justify-content: space-between;
 			padding: 51px 60px 41px 114px;
 			position: relative;
 			height: 358px;
@@ -111,11 +129,54 @@ body {
 			}
 
 			&__link {
+				@extend %transition;
 				font-size: 1em;
 				font-weight: 700;
+				display: flex;
+				align-items: center;
+				&:hover {
+					color: $color-violet;
+				}
+
 				span {
 					margin-right: 21px;
 				}
+
+			}
+
+			&__label {
+				color: $text-white;
+				background-color: $color-pink;
+				border-radius: 0px 0px 4px 4px;
+				box-shadow: 0px 4px 0px #EFE3C5;
+				font-size: 1.8rem;
+				padding: 8px 15px;
+				position: absolute;
+				top: -5px;
+				text-transform: uppercase;
+			}
+
+		}
+
+	}
+
+	.dots {
+		position: absolute;
+		left: 60px;
+		bottom: 60px;
+		display: flex;
+		.dot {
+			background-color: #fff;
+			border-radius: 50%;
+			cursor: pointer;
+			margin-right: 15px;
+			height: 6px;
+			width: 6px;
+			&:last-child {
+				margin-right: 0;
+			}
+			&.is-active {
+				background-color: $color-pink;
 			}
 
 		}
