@@ -13,6 +13,7 @@
 	align-items: center;
 	justify-content: space-between;
 	position: relative;
+	flex: 0 0 auto;
 
 	&__left {
 		display: flex;
@@ -91,6 +92,7 @@
 		opacity: 0;
 		pointer-events: none;
 		transform: translateY(10px);
+
 		&:before {
 			border-top: 1px solid $color-violet;
 			border-right: 1px solid $color-violet;
@@ -103,6 +105,7 @@
 			width: 18px;
 			transform: rotate(-45deg);
 		}
+
 		&__item {
 			@extend %transition;
 			color: $text-main;
@@ -110,9 +113,11 @@
 			font-weight: 400;
 			margin-bottom: 10px;
 			white-space: nowrap;
+
 			&:last-child {
 				margin-bottom: 0;
 			}
+
 			&:hover {
 				color: $color-violet;
 			}
@@ -156,16 +161,25 @@
 				transform: none;
 			}
 
-			&:hover svg {
+			&:hover .icon-arrow-desktop {
 				transform: rotate(180deg);
 			}
 
 			svg {
+				fill: currentColor;
+			}
+
+			.icon-arrow-desktop {
 				@extend %transition;
 				transition-property: transform;
-				fill: currentColor;
 				margin-left: 5px;
 				transform: none;
+			}
+
+			.icon-arrow-mobile {
+				display: none;
+				@extend %transition;
+				transition-property: transform;
 			}
 
 		}
