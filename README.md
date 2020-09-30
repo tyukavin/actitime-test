@@ -1,4 +1,4 @@
-Quick start template based on simple BoilerPlate + Bootstrap + Sass + Gulp + Babel
+Шаблон верстки Sass + Gulp + Babel
 =============
 Easy HTML Sceleton based on simple BoilerPlate, Bootstrap and Sass with Gulp.
 
