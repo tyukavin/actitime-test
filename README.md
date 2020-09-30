@@ -2,6 +2,7 @@
 =============
 Easy HTML Sceleton based on simple BoilerPlate, Bootstrap and Sass with Gulp.
 
+[Home](/app/index.html)
 
 Gulp has 5 main tasks:
 
