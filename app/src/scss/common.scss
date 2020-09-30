@@ -151,6 +151,7 @@ body {
 			height: 358px;
 			width: 390px;
 			text-align: left;
+
 			&:before {
 				counter-increment: section;
 				content: counter(section);
@@ -188,6 +189,11 @@ body {
 
 				span {
 					margin-right: 21px;
+				}
+
+				svg	{
+					width: 22px;
+					height: 16px;
 				}
 
 			}
