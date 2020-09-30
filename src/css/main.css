@@ -16,7 +16,7 @@ body {
   font-size: 1.6rem;
   color: #212353; }
 
-body .btn, body .swiper-slide, body .slider-item__link, .main__title, .main__desc, .header__left, .header .menu-btn__line, .header .menu-btn:before, .header .menu-btn:after, .header .menu-inside, .header .menu-inside__item, .header-menu__item, .header-menu__inside svg {
+body .btn, body .swiper-slide, body .slider-item__link, .main__title, .main__desc, .header__left, .header .menu-btn__line, .header .menu-btn:before, .header .menu-btn:after, .header .menu-inside, .header .menu-inside__item, .header-menu__item, .header-menu__inside .icon-arrow-desktop, .header-menu__inside .icon-arrow-mobile {
   transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1); }
 
 .main__title, .main__desc {
@@ -29,7 +29,11 @@ body .btn, body .swiper-slide, body .slider-item__link, .main__title, .main__des
   box-sizing: border-box; }
 
 body {
-  background: #FFF; }
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh; }
   body h1, body h2, body h3, body h4, body h5, body h6 {
     margin: 0;
     padding: 0; }
@@ -168,7 +172,8 @@ body {
   background: #FFF;
   padding-top: 92px;
   padding-bottom: 151px;
-  text-align: center; }
+  text-align: center;
+  flex: 1 1 auto; }
   .main img {
     max-width: 100%; }
   .main__title {
@@ -205,7 +210,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative; }
+  position: relative;
+  flex: 0 0 auto; }
   .header__left {
     display: flex;
     flex: 1 1 0; }
@@ -296,17 +302,22 @@ body {
         opacity: 1;
         pointer-events: all;
         transform: none; }
-      .header-menu__inside:hover svg {
+      .header-menu__inside:hover .icon-arrow-desktop {
         transform: rotate(180deg); }
       .header-menu__inside svg {
+        fill: currentColor; }
+      .header-menu__inside .icon-arrow-desktop {
         transition-property: transform;
-        fill: currentColor;
         margin-left: 5px;
         transform: none; }
+      .header-menu__inside .icon-arrow-mobile {
+        display: none;
+        transition-property: transform; }
 
 .footer {
   background-color: #9C69E2;
-  padding: 75px 0; }
+  padding: 75px 0;
+  flex: 0 0 auto; }
   .footer-right {
     display: flex;
     align-items: center; }
@@ -331,12 +342,13 @@ body {
 /*Tablet*/
 /*Tablet Stop*/
 /*Small devices Start*/
+@media (max-width: 1400px) {
+  body .container {
+    width: 1240px; } }
+
 /*Small devices Stop*/
 /*Phone Start*/
-/*Pages stop*/
-/*Phone Stop*/
-/*small phone start*/
-@media (max-width: 480px) {
+@media (max-width: 1200px) {
   body .container {
     padding: 0 20px;
     width: 100%; }
@@ -350,6 +362,7 @@ body {
       top: 100%;
       left: 0;
       width: 100%;
+      z-index: 2;
       pointer-events: none;
       opacity: 0;
       transform: translateY(20px);
@@ -371,6 +384,15 @@ body {
           margin-right: 0; }
           body .header__left .header-menu__item:last-child {
             border-bottom: 1px solid #9C69E2; }
+        body .header__left .header-menu__inside {
+          justify-content: space-between;
+          flex-flow: row wrap; }
+          body .header__left .header-menu__inside .icon-arrow-desktop {
+            display: none; }
+          body .header__left .header-menu__inside .icon-arrow-mobile {
+            display: block; }
+            body .header__left .header-menu__inside .icon-arrow-mobile.is-active {
+              transform: rotate(90deg); }
     body .header__sign {
       display: flex;
       justify-content: center;
@@ -380,6 +402,25 @@ body {
       align-items: center; }
     body .header .menu-btn {
       display: block; }
+    body .header .menu-inside {
+      border: none;
+      border-top: 1px solid #9C69E2;
+      background-color: #F9F4FF;
+      border-radius: 0;
+      box-shadow: none;
+      display: none;
+      padding: 20px 40px;
+      margin: 15px -20px -15px;
+      position: relative;
+      top: 0;
+      left: 0;
+      flex: 1 1 100%;
+      width: 100%;
+      transform: none; }
+      body .header .menu-inside.is-show {
+        display: block; }
+      body .header .menu-inside:before {
+        display: none; }
   body .main {
     padding-top: 70px;
     padding-bottom: 73px; }
@@ -387,20 +428,50 @@ body {
       font-size: 3.5rem; }
     body .main__desc {
       padding: 0 20px;
+      width: 90%; }
+  body .footer {
+    padding: 55px 0; }
+    body .footer-logo {
+      margin-right: 70px; }
+    body .footer__container {
+      align-items: flex-start; }
+    body .footer-right {
+      justify-content: space-between;
+      align-items: flex-start; }
+    body .footer-menu {
+      display: flex;
+      flex-direction: column; }
+      body .footer-menu__item {
+        margin-right: 0;
+        margin-bottom: 20px; }
+        body .footer-menu__item:last-child {
+          margin-bottom: 0; }
+    body .footer-form .input {
+      width: 250px; }
+  body .slider {
+    padding: 97px 142px 130px 150px;
+    width: 682px; }
+    body .slider .swiper-slide {
+      display: flex; }
+      body .slider .swiper-slide-next {
+        opacity: 0; } }
+
+/*Pages stop*/
+/*Phone Stop*/
+/*small phone start*/
+@media (max-width: 688px) {
+  body .container {
+    padding: 0 20px;
+    width: 100%; }
+  body .main {
+    max-width: 100%; }
+    body .main__desc {
       width: 100%; }
   body .footer-logo {
     margin-right: 0; }
   body .footer__container {
+    align-items: inherit;
     flex-direction: column; }
-  body .footer-right {
-    justify-content: space-between;
-    align-items: flex-start; }
-  body .footer-menu {
-    display: flex;
-    flex-direction: column; }
-    body .footer-menu__item {
-      margin-right: 0;
-      margin-bottom: 20px; }
   body .footer-form {
     margin-top: 35px;
     text-align: center; }
@@ -420,7 +491,9 @@ body {
       padding: 50px 30px;
       width: 100%; }
       body .slider-item:before {
-        display: none; } }
+        display: none; }
+    body .slider .swiper-slide {
+      display: block; } }
 
 /*small phone stop*/
 /*Responsive stop*/

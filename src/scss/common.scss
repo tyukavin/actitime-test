@@ -16,6 +16,10 @@
 
 body {
 	background: #FFF;
+	display: flex;
+	flex-direction: column;
+	min-width: 320px;
+	min-height: 100vh;
 
 	h1, h2, h3, h4, h5, h6 {
 		margin: 0;
@@ -214,6 +218,7 @@ body {
 	padding-top: 92px;
 	padding-bottom: 151px;
 	text-align: center;
+	flex: 1 1 auto;
 
 	img {
 		max-width: 100%;
