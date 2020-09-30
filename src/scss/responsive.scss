@@ -55,12 +55,66 @@
 		.header {
 			padding: 25px 0;
 
-			&-menu {
-				display: none;
+			&__left {
+				background-color: #fff;
+				box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.15);
+				display: block;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+
+				pointer-events: none;
+				opacity: 0;
+				transform: translateY(20px);
+				transition-property: opacity, transform;
+
+				&.is-show {
+					pointer-events: all;
+					opacity: 1;
+					transform: none;
+				}
+
+				ul {
+					display: flex;
+					flex-direction: column;
+					width: 100%;
+				}
+
+				.header-menu {
+					flex: 1 1 0;
+
+					&__item {
+						border-top: 1px solid $color-violet;
+						padding-left: 20px;
+						padding-right: 20px;
+						margin-right: 0;
+
+						&:last-child {
+							border-bottom: 1px solid $color-violet;
+						}
+
+					}
+
+				}
+
+				
+
 			}
 
 			&__sign {
-				display: none;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 35px 0;
+			}
+
+			&__container {
+				align-items: center;
+			}
+
+			.menu-btn {
+				display: block;
 			}
 
 		}
@@ -75,6 +129,7 @@
 
 			&__desc {
 				padding: 0 20px;
+				width: 100%;
 			}
 
 		}
