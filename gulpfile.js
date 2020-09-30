@@ -3,6 +3,7 @@ const del = require("del");
 const sass = require("gulp-sass");
 const browserSync = require('browser-sync').create();
 const babel = require('gulp-babel');
+const svgSprite = require('gulp-svg-sprite');
 
 //Pathes
 var path = {
@@ -12,7 +13,8 @@ var path = {
   fonts: 'app/src/fonts',
   images: 'app/src/img',
   tmp: 'app/src/tmp',
-  production: 'app/build'
+  production: 'app/build',
+  sprite: 'app/src/svg'
 };
 
 function onError(err) {
@@ -80,5 +82,19 @@ function watchFiles(done) {
   done();
 }
 
+function createSprite(done) {
+  return src(path.sprite + '/*.svg') // svg files for sprite
+    .pipe(svgSprite({
+          mode: {
+              stack: {
+                  sprite: "../sprite.svg"  //sprite file name
+              }
+          },
+        }
+    ))
+    .pipe(dest(path.production + '/sprite'));
+    done();
+}
+
 exports.default = series(cleanDev, scss, buildCSS, buildJS);
-exports.dev = series(cleanDev, scss, buildCSS, buildJS, watchFiles, serve);
+exports.dev = series(cleanDev, scss, buildCSS, buildJS, watchFiles, createSprite, serve);
