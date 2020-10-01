@@ -4,6 +4,8 @@
 
 w.addEventListener('load', function () {
 
+	svg4everybody();
+
 	var btnMenu = d.querySelector('.menu-btn'),
 		mobileMenu = d.querySelector('.header__left'),
 		mainTitle = d.querySelector('.main__title'),
