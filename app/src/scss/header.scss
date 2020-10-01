@@ -23,7 +23,7 @@
 	&__left {
 		display: flex;
 		flex: 1 1 0;
-		@extend %transition;
+		@include transition(opacity, transform);
 	}
 
 	&-logo {
@@ -42,7 +42,7 @@
 			top: 50%;
 			transform: translateY(-50%);
 			@extend %menu-btn-line;
-			@extend %transition;
+			@include transition(width);
 		}
 
 		&:before,
@@ -50,7 +50,7 @@
 			content: '';
 			transform-origin: 50% 50%;
 			@extend %menu-btn-line;
-			@extend %transition;
+			@include transition(top, bottom, transform);
 			transition-duration: .1s;
 		}
 
@@ -83,7 +83,6 @@
 	}
 
 	.menu-inside {
-		@extend %transition;
 		background-color: #fff;
 		border: 1px solid $color-violet;
 		border-radius: 10px;
@@ -97,6 +96,7 @@
 		opacity: 0;
 		pointer-events: none;
 		transform: translateY(10px);
+		@include transition(opacity, transform);
 
 		&:before {
 			border-top: 1px solid $color-violet;
@@ -112,12 +112,12 @@
 		}
 
 		&__item {
-			@extend %transition;
 			color: $text-main;
 			font-size: 1.6rem;
 			font-weight: 400;
 			margin-bottom: 10px;
 			white-space: nowrap;
+			@include transition(color);
 
 			&:last-child {
 				margin-bottom: 0;
@@ -140,13 +140,13 @@
 		}
 
 		&__item {
-			@extend %transition;
 			color: $text-main;
 			font-size: 1.8rem;
 			font-weight: 500;
 			margin-right: 52px;
 			line-height: 1.6;
 			padding: 15px 0;
+			@include transition(color);
 			&:hover {
 				color: $color-violet;
 			}
@@ -175,20 +175,18 @@
 			}
 
 			.icon-arrow-desktop {
-				@extend %transition;
-				transition-property: transform;
 				width: 10px;
 				height: 6px;
 				margin-left: 5px;
 				transform: none;
+				@include transition(transform);
 			}
 
 			.icon-arrow-mobile {
 				display: none;
 				width: 11px;
 				height: 18px;
-				@extend %transition;
-				transition-property: transform;
+				@include transition(transform);
 			}
 
 		}

@@ -1,7 +1,3 @@
-%transition {
-	transition: .2s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
 %transition-text {
 	opacity: 0;
 	transform: translateY(15px);
@@ -47,7 +43,6 @@ body {
 	}
 
 	.btn {
-		@extend %transition;
 		color: $text-white;
 		cursor: pointer;
 		background-color: $color-violet;
@@ -57,8 +52,9 @@ body {
 		font-weight: 500;
 		line-height: 1.6;
 		padding: 16px 59px;
+		@include transition(background-color);
 		&:hover {
-			background-color: #B17FF4;
+			background-color: $color-violet-hover;
 		}
 
 		&--more {
@@ -90,7 +86,7 @@ body {
 
 	.swiper-slide {
 		opacity: 0;
-		@extend %transition;
+		@include transition(opacity);
 	}
 
 	.swiper-slide-active,
@@ -141,7 +137,7 @@ body {
 		&-item {
 			background-color: $color-yellow2;
 			box-sizing: border-box;
-			box-shadow: 0px 10px 0px #F5BD3F;
+			box-shadow: 0px 10px 0px $color-yellow2-shadow;
 			border-radius: 50px;
 			display: inline-flex;
 			flex-direction: column;
@@ -159,30 +155,30 @@ body {
 				position: absolute;
 				left: -65px;
 				top: 30px;
-				font-size: 202px;
+				font-size: 20.2rem;
 				font-weight: 700;
 				line-height: 1;
 			}
 
 			&__title {
-				font-size: 1.5625em;
+				font-size: 2.5rem;
 				line-height: 1.3;
 				margin-bottom: 30px;
 			}
 
 			p {
 				color: $text-gray;
-				font-size: 1em;
+				font-size: 1.6rem;
 				line-height: 1.65;
 				margin-bottom: 25px;
 			}
 
 			&__link {
-				@extend %transition;
-				font-size: 1em;
+				font-size: 1.6rem;
 				font-weight: 700;
 				display: flex;
 				align-items: center;
+				@include transition(color);
 				&:hover {
 					color: $color-violet;
 				}
@@ -234,7 +230,7 @@ body {
 		font-size: 4rem;
 		line-height: 1.3;
 		margin-bottom: .95em;
-		@extend %transition;
+		@include transition(opacity, tramsform);
 		@extend %transition-text;
 		transition-delay: .1s;
 
@@ -253,7 +249,7 @@ body {
 		margin: 0 auto;
 		margin-bottom: 56px;
 		width: 50%;
-		@extend %transition;
+		@include transition(opacity, tramsform);
 		@extend %transition-text;
 		transition-delay: .15s;
 

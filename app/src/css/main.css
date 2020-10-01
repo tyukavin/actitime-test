@@ -1,7 +1,3 @@
-.no-gutter > [class*='col-'] {
-  padding-right: 0;
-  padding-left: 0; }
-
 html {
   font-size: 62.5%;
   color: #212353;
@@ -15,9 +11,6 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
   color: #212353; }
-
-body .btn, body .swiper-slide, body .slider-item__link, .main__title, .main__desc, .header__left, .header .menu-btn__line, .header .menu-btn:before, .header .menu-btn:after, .header .menu-inside, .header .menu-inside__item, .header-menu__item, .header-menu__inside .icon-arrow-desktop, .header-menu__inside .icon-arrow-mobile {
-  transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1); }
 
 .main__title, .main__desc {
   opacity: 0;
@@ -58,7 +51,9 @@ body {
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 1.6;
-    padding: 16px 59px; }
+    padding: 16px 59px;
+    transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: background-color; }
     body .btn:hover {
       background-color: #B17FF4; }
     body .btn--more {
@@ -78,7 +73,9 @@ body {
   body .row-space-between {
     justify-content: space-between; }
   body .swiper-slide {
-    opacity: 0; }
+    opacity: 0;
+    transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: opacity; }
   body .swiper-slide-active,
   body .swiper-slide-next {
     opacity: 1; }
@@ -134,23 +131,25 @@ body {
         position: absolute;
         left: -65px;
         top: 30px;
-        font-size: 202px;
+        font-size: 20.2rem;
         font-weight: 700;
         line-height: 1; }
       body .slider-item__title {
-        font-size: 1.5625em;
+        font-size: 2.5rem;
         line-height: 1.3;
         margin-bottom: 30px; }
       body .slider-item p {
         color: #4B5D68;
-        font-size: 1em;
+        font-size: 1.6rem;
         line-height: 1.65;
         margin-bottom: 25px; }
       body .slider-item__link {
-        font-size: 1em;
+        font-size: 1.6rem;
         font-weight: 700;
         display: flex;
-        align-items: center; }
+        align-items: center;
+        transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+        transition-property: color; }
         body .slider-item__link:hover {
           color: #9C69E2; }
         body .slider-item__link span {
@@ -183,6 +182,8 @@ body {
     font-size: 4rem;
     line-height: 1.3;
     margin-bottom: .95em;
+    transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: opacity, tramsform;
     transition-delay: .1s; }
     .main__title.is-show {
       opacity: 1;
@@ -195,6 +196,8 @@ body {
     margin: 0 auto;
     margin-bottom: 56px;
     width: 50%;
+    transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: opacity, tramsform;
     transition-delay: .15s; }
     .main__desc.is-show {
       opacity: 1;
@@ -221,7 +224,9 @@ body {
   flex: 0 0 auto; }
   .header__left {
     display: flex;
-    flex: 1 1 0; }
+    flex: 1 1 0;
+    transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: opacity, transform; }
   .header-logo {
     margin-right: 131px;
     display: flex;
@@ -233,10 +238,14 @@ body {
     display: none; }
     .header .menu-btn__line {
       top: 50%;
-      transform: translateY(-50%); }
+      transform: translateY(-50%);
+      transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition-property: width; }
     .header .menu-btn:before, .header .menu-btn:after {
       content: '';
       transform-origin: 50% 50%;
+      transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition-property: top, bottom, transform;
       transition-duration: .1s; }
     .header .menu-btn:before {
       top: 0; }
@@ -263,7 +272,9 @@ body {
     padding: 15px 25px;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(10px); }
+    transform: translateY(10px);
+    transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: opacity, transform; }
     .header .menu-inside:before {
       border-top: 1px solid #9C69E2;
       border-right: 1px solid #9C69E2;
@@ -280,7 +291,9 @@ body {
       font-size: 1.6rem;
       font-weight: 400;
       margin-bottom: 10px;
-      white-space: nowrap; }
+      white-space: nowrap;
+      transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition-property: color; }
       .header .menu-inside__item:last-child {
         margin-bottom: 0; }
       .header .menu-inside__item:hover {
@@ -296,7 +309,9 @@ body {
       font-weight: 500;
       margin-right: 52px;
       line-height: 1.6;
-      padding: 15px 0; }
+      padding: 15px 0;
+      transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition-property: color; }
       .header-menu__item:hover {
         color: #9C69E2; }
       .header-menu__item:last-child {
@@ -314,15 +329,17 @@ body {
       .header-menu__inside svg {
         fill: currentColor; }
       .header-menu__inside .icon-arrow-desktop {
-        transition-property: transform;
         width: 10px;
         height: 6px;
         margin-left: 5px;
-        transform: none; }
+        transform: none;
+        transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+        transition-property: transform; }
       .header-menu__inside .icon-arrow-mobile {
         display: none;
         width: 11px;
         height: 18px;
+        transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
         transition-property: transform; }
 
 .footer {
@@ -346,19 +363,12 @@ body {
     width: 419px; }
 
 /*Responsive start*/
-/*UltraLarge screens start*/
-/*UltraLarge screens stop*/
-/*Large screens*/
-/*Laptops*/
-/*Tablet*/
-/*Tablet Stop*/
-/*Small devices Start*/
+/*laptop start*/
 @media (max-width: 1400px) {
   body .container {
     width: 1240px; } }
 
-/*Small devices Stop*/
-/*Phone Start*/
+/*tablet start*/
 @media (max-width: 1200px) {
   body .container {
     padding: 0 20px;
@@ -467,13 +477,8 @@ body {
       body .slider .swiper-slide-next {
         opacity: 0; } }
 
-/*Pages stop*/
-/*Phone Stop*/
-/*small phone start*/
+/*phone start*/
 @media (max-width: 688px) {
-  body .container {
-    padding: 0 20px;
-    width: 100%; }
   body .main {
     max-width: 100%; }
     body .main__desc {
@@ -505,6 +510,3 @@ body {
         display: none; }
     body .slider .swiper-slide {
       display: block; } }
-
-/*small phone stop*/
-/*Responsive stop*/
