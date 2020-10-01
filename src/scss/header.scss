@@ -22,7 +22,7 @@
 
 	&__left {
 		display: flex;
-		flex: 1 1 0;
+		flex: 1 1 100%;
 		@include transition(opacity, transform);
 	}
 
@@ -30,6 +30,7 @@
 		margin-right: 131px;
 		display: flex;
 		align-items: center;
+		flex: none;
 	}
 
 	.menu-btn {
